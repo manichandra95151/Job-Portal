@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <style>
+        ::-webkit-scrollbar {
+    display: none;
+}
+    </style>
+</head>
+
+<body class="bg-gray-900 dark:bg-gray-950">
+    <form action="/postJob" method="post">
+        <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+            <div class="sm:mx-auto sm:w-full sm:max-w-lg">
+                <div class="bg-white dark:bg-gray-900 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+
+                    <div class="text-center space-y-2">
+                        <h1 class="text-3xl font-bold">Post a job</h1>
+                        <p class="text-gray-500 dark:text-gray-400">Fill out the form below to submit a new job posting.
+                        </p>
+                    </div>
+                    
+                    <div class="mt-6 space-y-4">
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium" for="job-type">Job type</label>
+                            <select id="job-type" name="jobType"
+                                class="block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" required="">
+                                <option value="">Select Job Type</option>
+                                <option value="Tech">Tech</option>
+                                <option value="Non-Tech">Non-Tech</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium" for="job-role">Job role</label>
+                            <select id="job-role" name="jobDesignation"
+                                class="block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2" required="">
+                                <option value="">Select Job Role</option>
+                                <option value="HR">HR</option>
+                                <option value="SDE">SDE</option>
+                                <option value="Manager">Manager</option>
+                                <option value="Mern Developer">Mern Developer</option>
+                                <option value="Java Developer">Java Developer</option>
+                                <option value="Full Stack Developer">Full Stack Developer</option>
+                            </select>
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                for="jobLocation" name="jobLocation">
+                                Location
+                            </label>
+                            <input
+                                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                id="jobLocation" name="jobLocation" placeholder="Enter the location"  required=""/>
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                for="companyName" name="companyName">
+                                Company
+                            </label>
+                            <input
+                                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                id="companyName" name="companyName" placeholder="Enter the company" required=""/>
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                for="salary" name="salary" >
+                                Salary
+                            </label>
+                            <input
+                                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                id="salary" name="salary" placeholder="Enter the salary" required=""/>
+                        </div>
+                        <div class="space-y-2">
+                            <label
+                                class="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70"
+                                for="numberofOpenings" name="numberofOpenings">
+                                Positions
+                            </label>
+                            <input
+                                class="flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                                id="numberofOpenings" name="numberofOpenings" placeholder="Enter the number of positions" required=""/>
+                        </div>
+
+                        <div class="relative max-w-sm">
+                            <div class="absolute inset-y-0 left-0 flex items-center pl-3.5 pointer-events-none">
+                                <svg class="w-4 h-4  text-gray-500 dark:text-gray-400" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 00 0 1 0-2Z" />
+                                </svg>
+                            </div>
+                            <input datepicker type="text" name="applyBy" id="applyBy"
+                                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full px-10 py-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                                placeholder="Select date" required="">
+                        </div>
+
+                        <div class="relative max-w-sm">
+                            <button id="dropdownBgHoverButton" data-dropdown-toggle="dropdownBgHover"
+                                class="block w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+                                type="button">Skills Required<svg class="w-2.5 h-2.5 ms-3" aria-hidden="true"
+                                    xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"
+                                        stroke-width="2" d="m1 1 4 4 4-4" />
+                                </svg>
+                            </button>
+
+                            <!-- Dropdown menu -->
+                            <!-- Dropdown menu -->
+                            <div id="dropdownBgHover"
+                                class="z-10 hidden w-48 bg-white rounded-lg shadow dark:bg-gray-700">
+                                <ul class="p-3 space-y-1 text-sm text-gray-700 dark:text-gray-200"
+                                    aria-labelledby="dropdownBgHoverButton" name="skillsRequired">
+                                    <li>
+                                        <div
+                                            class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                            <input id="checkbox-item-4" type="checkbox" value="React" name="skillsRequired[]"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-item-4"
+                                                class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">React</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                            <input checked id="checkbox-item-5" type="checkbox" value="Angular"
+                                                name="skillsRequired[]"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-item-5"
+                                                class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">Angular</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                            <input id="checkbox-item-6" type="checkbox" value="NodeJs" name="skillsRequired[]"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-item-6"
+                                                class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">NodeJs</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                            <input id="checkbox-item-6" type="checkbox" value="SpringBoot" name="skillsRequired[]"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-item-6"
+                                                class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">SpringBoot</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                            <input id="checkbox-item-6" type="checkbox" value="ExpressJs" name="skillsRequired[]"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-item-6"
+                                                class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">ExpressJs</label>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div
+                                            class="flex items-center p-2 rounded hover:bg-gray-100 dark:hover:bg-gray-600">
+                                            <input id="checkbox-item-6" type="checkbox" value="DSA" name="skillsRequired[]"
+                                                class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-700 dark:focus:ring-offset-gray-700 focus:ring-2 dark:bg-gray-600 dark:border-gray-500">
+                                            <label for="checkbox-item-6"
+                                                class="w-full ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300">DSA</label>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="w-full flex justify-center"> <!-- Added this line -->
+                            <button type="submit"
+                                class="inline-flex items-center justify-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                                Post
+                            </button>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </form>
+</body>
+
+</html>

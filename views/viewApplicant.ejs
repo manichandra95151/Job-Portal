@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Applicants</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="w-full overflow-auto">
+        <div class="relative w-full overflow-auto">
+            <table class="w-full caption-bottom text-sm">
+                <% if (applicants.length === 0) { %>
+                    <tr>
+                        <td colspan="4" class="text-center py-4">No applicants found.</td>
+                    </tr>
+                <% }
+                else { %>
+                <thead class="[&amp;_tr]:border-b">
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Contact</th>
+                    <th>Resume</th>
+                </thead>
+                <tbody class="[&amp;_tr:last-child]:border-0">
+                    
+                        <% applicants.forEach(applicant => { %>
+                            <tr class="border-b transition-colors hover:bg-muted/50 data-[state=selected]:bg-muted hover:shrink-0">
+                                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 whitespace-nowrap"><%= applicant.name %></td>
+                                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 whitespace-nowrap"><%= applicant.email %></td>
+                                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 whitespace-nowrap"><%= applicant.contact %></td>
+                                <td class="p-4 align-middle [&amp;:has([role=checkbox])]:pr-0 text-right">
+                                    <a href="<%= applicant.filename %>">View Resume</a>
+                                </td>
+                            </tr>
+                        <% }) %>
+                    <% } %>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
