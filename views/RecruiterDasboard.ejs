@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div class="bg-gradient-to-r from-purple-400 to-indigo-500 dark:from-purple-700 dark:to-indigo-800 min-h-screen">
+        <header class="py-10">
+            <div class="container flex items-center gap-4 px-4 md:px-6"><a
+                    class="flex items-center gap-2 text-lg font-semibold text-gray-50 dark:text-gray-300" href="/"><svg
+                        xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                        class="w-6 h-6">
+                        <rect width="18" height="18" x="3" y="3" rx="2"></rect>
+                    </svg>
+                    Home
+                </a>
+                <a class="flex items-center space-x-2 text-sm font-medium text-white dark:text-gray-300" ><svg
+                    xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                    <circle cx="9" cy="7" r="4"></circle>
+                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                  </svg>
+                  <h1 class="text-2xl font-bold tracking-tighter sm:text-3xl text-gray-50 dark:text-gray-300">
+                    Recruiter Dashboard
+                </h1>
+                </a>
+               
+                <div class="ml-auto flex items-center gap-4"><a href="/logout"> <button
+                    class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 border border-input bg-background hover:bg-accent hover:text-accent-foreground h-9 rounded-md px-3">
+                    Logout
+                </button></a>
+                   </div>
+            </div>
+        </header>
+        <main class="flex-1">
+            <section class="py-12">
+                <div class="container flex flex-col items-center justify-center gap-4 px-4 md:px-6">
+                    <div class="text-center">
+                        <%if(locals.lastVisit){%>
+                            <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+                              <span class="font-medium">Your last visit was on:</span> <%=locals.lastVisit%>
+                            </div>
+                            <% }%>
+                        <h2 class="text-3xl font-bold text-gray-50 dark:text-gray-300">Welcome, Recruiter!</h2>
+                        <p
+                            class="max-w-[600px] text-gray-50 md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed dark:text-gray-300">
+                            Connect with top talent. Let the platform streamline your
+                            recruitment process, so you can focus on
+                            finding the perfect candidates</p>
+                    </div>
+                    <div class="flex flex-col gap-2 min-[400px]:flex-row"><a
+                            class="inline-flex h-10 items-center justify-center rounded-md border border-gray-200 border-gray-200 bg-white px-8 text-sm font-medium shadow-sm gap-2 transition-colors hover:bg-gray-100 hover:text-gray-900 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:border-gray-800 dark:border-gray-800 dark:bg-gray-950 dark:hover:bg-gray-800 dark:hover:text-gray-50 dark:focus-visible:ring-gray-300"
+                            href="/jobs">
+                            View Jobs
+                        </a><a
+                            class="inline-flex h-10 items-center justify-center rounded-md bg-gray-900 px-8 text-sm font-medium text-gray-50 shadow transition-colors hover:bg-gray-900/90 focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-gray-950 disabled:pointer-events-none disabled:opacity-50 dark:bg-gray-50 dark:text-gray-900 dark:hover:bg-gray-50/90 dark:focus-visible:ring-gray-300"
+                            href="/postJob">
+                            Post a New Job
+                        </a></div>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>
