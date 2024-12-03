@@ -6,7 +6,7 @@ Job Portal is a comprehensive web application that connects job seekers with pot
 
 ## Live Demo
 
-Check out the live version of the project [here](https://job-portal-5cx3.onrender.com//).
+Check out the live version of the project [here](https://job-portal-7839.onrender.com/).
 
 
 ## Table of Contents
