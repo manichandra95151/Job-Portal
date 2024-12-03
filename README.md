@@ -33,7 +33,7 @@ Check out the live version of the project [here](https://job-portal-7839.onrende
 ## Tech Stack
 
 - **Front-End**: EJS,TailwindCSS
-- **Back-End**: Node.js, Express
+- **Back-End**: Node.js, Express, MongoDB
 
 ## Installation
 
