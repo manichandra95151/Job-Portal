@@ -55,7 +55,7 @@ app.use('/', jobRoutes);
 app.set('view engine', 'ejs'); // Set EJS as the template engine
 
 // Serve static files
-app.use(express.static('public'));
+app.use(express.static('views'));
 
 // Start server
 const PORT = process.env.PORT || 5000;
