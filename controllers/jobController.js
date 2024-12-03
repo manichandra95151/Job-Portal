@@ -10,11 +10,11 @@ export default class JobController {
     const search = req.query.search || '';
     try {
       const jobs = await Job.find();
-      res.render('getJobs', { jobs, search, errors: [] });
+      res.render('getjobs', { jobs, search, errors: [] });
     } catch (err) {
       console.error(err);
       const errorToastMessage = "An error occurred while fetching jobs.";
-      res.render('getJobs', { jobs: [], search, errors: [], errorToastMessage });
+      res.render('getjobs', { jobs: [], search, errors: [], errorToastMessage });
     }
   };
       postJob = (req, res) => {
