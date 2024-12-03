@@ -1,0 +1,116 @@
+<% styles = `
+<style>
+    ::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+` %>
+
+<main class="bg-gray-900 dark:bg-gray-950">
+    <form action="/viewJob/<%= job._id %>" method="post">
+        <div class="min-h-screen flex flex-col justify-center py-12 sm:px-6 lg:px-8">
+            <div class="sm:mx-auto sm:w-full sm:max-w-lg">
+                <div class="bg-white dark:bg-gray-900 py-8 px-4 shadow sm:rounded-lg sm:px-10">
+                    <div class="text-center space-y-2">
+                        <h1 class="text-3xl font-bold">Edit job</h1>
+                        <p class="text-gray-500 dark:text-gray-400">Edit the form below:</p>
+                    </div>
+                    <div class="mt-6 space-y-4">
+                        <!-- Job Type -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium" for="job-type">Job type</label>
+                            <select id="job-type" name="jobType"
+                                class="block w-full rounded-md border px-3 py-2 text-sm">
+                                <option value="">Select Job Type</option>
+                                <option value="Tech" <%= job.jobType === "Tech" ? "selected" : "" %>>Tech</option>
+                                <option value="Non-Tech" <%= job.jobType === "Non-Tech" ? "selected" : "" %>>Non-Tech</option>
+                            </select>
+                        </div>
+    
+                        <!-- Job Role -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium" for="job-role">Job role</label>
+                            <select id="job-role" name="jobDesignation"
+                                class="block w-full rounded-md border px-3 py-2 text-sm">
+                                <option value="">Select Job Role</option>
+                                <option value="HR" <%= job.jobDesignation === "HR" ? "selected" : "" %>>HR</option>
+                                <option value="SDE" <%= job.jobDesignation === "SDE" ? "selected" : "" %>>SDE</option>
+                                <option value="Manager" <%= job.jobDesignation === "Manager" ? "selected" : "" %>>Manager</option>
+                                <option value="Mern Developer" <%= job.jobDesignation === "Mern Developer" ? "selected" : "" %>>Mern Developer</option>
+                                <option value="Java Developer" <%= job.jobDesignation === "Java Developer" ? "selected" : "" %>>Java Developer</option>
+                                <option value="Full Stack Developer" <%= job.jobDesignation === "Full Stack Developer" ? "selected" : "" %>>Full Stack Developer</option>
+                            </select>
+                        </div>
+    
+                        <!-- Location -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium" for="jobLocation">Location</label>
+                            <input type="text" id="jobLocation" name="jobLocation" placeholder="Enter the location"
+                                value="<%= job.jobLocation %>" 
+                                class="block w-full rounded-md border px-3 py-2 text-sm" />
+                        </div>
+    
+                        <!-- Company -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium" for="companyName">Company</label>
+                            <input type="text" id="companyName" name="companyName" placeholder="Enter the company"
+                                value="<%= job.companyName %>" 
+                                class="block w-full rounded-md border px-3 py-2 text-sm" />
+                        </div>
+    
+                        <!-- Salary -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium" for="salary">Salary</label>
+                            <input type="text" id="salary" name="salary" placeholder="Enter the salary"
+                                value="<%= job.salary %>" 
+                                class="block w-full rounded-md border px-3 py-2 text-sm" />
+                        </div>
+    
+                        <!-- Number of Positions -->
+                        <div class="space-y-2">
+                            <label class="text-sm font-medium" for="numberofOpenings">Positions</label>
+                            <input type="number" id="numberofOpenings" name="numberofOpenings" placeholder="Enter the number of positions"
+                                value="<%= job.numberofOpenings %>" 
+                                class="block w-full rounded-md border px-3 py-2 text-sm" />
+                        </div>
+    
+                        <!-- Apply By -->
+                        <div class="relative max-w-sm">
+                            <label for="applyBy" class="text-sm font-medium">Apply By</label>
+                            <input type="text" id="applyBy" name="applyBy" placeholder="Select date"
+                                value="<%= job.applyBy %>" 
+                                class="block w-full rounded-md border px-3 py-2 text-sm" />
+                        </div>
+    
+                        <!-- Skills Required -->
+                        <div class="relative max-w-sm">
+                            <label class="text-sm font-medium">Skills Required</label>
+                            <!-- Add a height and overflow class -->
+                            <ul class="space-y-1 h-40 overflow-y-auto border rounded-md p-2">
+                                <% ["React", "Angular", "NodeJs", "SpringBoot", "ExpressJs", "DSA", "Python", "Next.js", "Java"].forEach(skill => { %>
+                                    <li>
+                                        <div class="flex items-center">
+                                            <input type="checkbox" name="skillsRequired[]" value="<%= skill %>"
+                                                <%= job.skillsRequired.includes(skill) ? "checked" : "" %> 
+                                                class="w-4 h-4" />
+                                            <label class="ml-2"><%= skill %></label>
+                                        </div>
+                                    </li>
+                                <% }) %>
+                            </ul>
+                        </div>
+                        
+    
+                        <!-- Submit -->
+                        <div class="w-full flex justify-center">
+                            <button type="submit"
+                                class="inline-flex items-center bg-white hover:bg-gray-100 text-gray-800 font-semibold py-2 px-4 border border-gray-400 rounded shadow">
+                                Submit
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</main>

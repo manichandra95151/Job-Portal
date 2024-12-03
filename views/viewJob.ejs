@@ -1,0 +1,94 @@
+<% styles = `
+<style>
+    ::-webkit-scrollbar {
+        display: none;
+    }
+</style>
+` %>
+
+<main class="bg-gray-900 min-h-screen">
+    <div class="py-8 sm:py-12 lg:py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-3xl border bg-white shadow-md rounded-lg mx-auto p-6 sm:p-8">
+            <div class="space-y-6">
+
+                <!-- Job Title -->
+                <div class="text-center">
+                    <h1 class="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-50">
+                        <%= job.jobDesignation %> at <%= job.companyName %>
+                    </h1>
+                    <p class="text-sm text-gray-500 dark:text-gray-400 mt-2">Posted on <%= new Date(job.jobPosted).toLocaleDateString('en-GB') %></p>
+                </div>
+
+                <!-- Job Details -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <!-- Left Column -->
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-50">Company</h3>
+                            <p class="text-gray-700 dark:text-gray-300"><%= job.companyName %></p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-50">Salary</h3>
+                            <p class="text-gray-700 dark:text-gray-300">INR <%= job.salary %> / year</p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-50">Openings</h3>
+                            <p class="text-gray-700 dark:text-gray-300"><%= job.numberofOpenings %></p>
+                        </div>
+                    </div>
+
+                    <!-- Right Column -->
+                    <div class="space-y-4">
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-50">Designation</h3>
+                            <p class="text-gray-700 dark:text-gray-300"><%= job.jobDesignation %></p>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-bold text-gray-900 dark:text-gray-50">Deadline</h3>
+                            <p class="text-gray-700 dark:text-gray-300"><%= new Date(job.applyBy).toLocaleDateString('en-GB') %></p>
+                        </div>
+                        <div>
+                            <a href="/viewApplicants/<%= job.id %>" class="text-red-500 hover:underline">
+                                <h3 class="text-lg font-bold text-gray-900 dark:text-gray-50">Applicants</h3>
+                            </a>
+                            <p class="text-gray-700 dark:text-gray-300"><%= job.applicants.length %></p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills Required -->
+                <div>
+                    <h3 class="text-lg font-bold text-gray-900 dark:text-gray-50">Skills Required</h3>
+                    <ul class="list-disc list-inside text-gray-700 dark:text-gray-300 mt-2">
+                        <% 
+                            (Array.isArray(job.skillsRequired) ? job.skillsRequired : job.skillsRequired.split(',')).forEach(skill => { 
+                        %>
+                            <li><%= skill.trim() %></li>
+                        <% }); %>
+                    </ul>
+                </div>
+
+                <!-- Buttons -->
+                <div class="flex justify-center gap-4">
+                    <% if (user === job.postedBy) { %>
+                        <a href="/editJob/<%= job.id %>" onclick="return confirm('Are you sure you want to edit this job?')">
+                            <button class="px-4 py-2 text-white bg-blue-600 hover:bg-blue-500 rounded-md">
+                                Edit
+                            </button>
+                        </a>
+                        <a href="/deleteJob/<%= job.id %>" onclick="return confirm('Are you sure you want to delete this job?')">
+                            <button class="px-4 py-2 text-white bg-red-600 hover:bg-red-500 rounded-md">
+                                Delete
+                            </button>
+                        </a>
+                    <% } %>
+                    <a href="/apply/<%= job.id %>">
+                        <button class="px-4 py-2 text-white bg-green-600 hover:bg-green-500 rounded-md">
+                            Apply
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>

@@ -1,0 +1,104 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Job Portal</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .para{
+      
+      color: white;
+      font-weight: 600;
+    }
+  </style>
+</head>
+
+<body>
+ -->
+
+<!-- Use the layout -->
+<% styles=` <style>
+  .para{
+
+  color: white;
+  font-weight: 600;
+  }
+  </style>
+  ` %>
+  <div class="bg-gradient-to-r from-purple-400 to-indigo-500 dark:from-purple-700 dark:to-indigo-800 min-h-screen">
+    <div class="container px-4 py-4 md:py-6 lg:py-8 md:px-6">
+      <div class="flex items-center justify-between">
+        <div class="flex flex-row md:flex-row items-center md:space-x-4 space-y-4 md:space-y-0">
+          <!-- Home Link -->
+          <a class="flex items-center space-x-2 text-lg md:text-2xl font-medium text-white dark:text-gray-300" href="/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+              <polyline points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <span>Home</span>
+          </a>
+        
+          <!-- Job Link -->
+          <a class="flex items-center space-x-2 text-lg md:text-2xl font-medium text-white dark:text-gray-300" href="/jobs">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+              stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5">
+              <rect width="20" height="14" x="2" y="7" rx="2" ry="2"></rect>
+              <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path>
+            </svg>
+            <span>Job</span>
+          </a>
+        </div>
+        
+
+      </div>
+      <!-- <%if(locals.lastVisit){%>
+      <div class="p-4 mb-4 text-sm text-blue-800 rounded-lg bg-blue-50 dark:bg-gray-800 dark:text-blue-400" role="alert">
+        <span class="font-medium">Your last visit was on:</span> <%=locals.lastVisit%>
+      </div>
+      <% }%> -->
+      <div class="mt-8" id="motivation">
+        <div class="container px-4 py-4 md:py-6 lg:py-8 md:px-6">
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+            <div class="bg-blue-100 p-6 shadow-md rounded-md transform hover:scale-105 transition-transform">
+              <h2 class="text-4xl font-bold text-blue-800 dark:text-blue-200">Use This Opportunity!</h2>
+              <p class="mt-6">Take the chance to land your dream job. Seize the moment and make it yours! Enhance your
+                skills and grow your career with us.</p>
+            </div>
+            <div class="bg-green-100 p-6 shadow-md rounded-md transform hover:scale-105 transition-transform">
+              <h2 class="text-4xl font-bold text-green-800 dark:text-green-200">Build Your Future!</h2>
+              <p class="mt-6">Create the career path you've always wanted. Start building your future today! Shape your
+                destiny with our career opportunities.</p>
+            </div>
+            <div class="bg-yellow-100 p-8 shadow-md rounded-md transform hover:scale-105 transition-transform">
+              <h2 class="text-5xl font-bold text-yellow-800 dark:text-yellow-200">Explore New Horizons!</h2>
+              <p class="mt-8">Discover exciting opportunities and expand your professional horizons with us! Join us in
+                exploring new paths and possibilities.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="mt-8">
+        <div class="flex justify-center space-x-4"><a href="jobs">
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 bg-blue-500 text-white px-6 py-3 rounded-md shadow-md hover:bg-blue-600">
+              I'm a Job Seeker
+            </button></a>
+          <a href="/dashboard">
+            <button
+              class="inline-flex items-center justify-center whitespace-nowrap text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 h-10 bg-green-500 text-white px-6 py-3 rounded-md shadow-md hover:bg-green-600">
+              I'm a Recruiter
+            </button></a>
+        </div>
+        <div class="para mt-4 text-center text-gray-500 dark:text-gray-400">
+          Are you looking for your next career move or searching for top talent? We've got you covered!
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- </body>
+
+</html> -->

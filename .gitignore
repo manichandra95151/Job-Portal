@@ -1,0 +1,14 @@
+# Node.js modules
+node_modules/
+
+# Environment variables file
+.env
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Any other files/folders you want to ignore

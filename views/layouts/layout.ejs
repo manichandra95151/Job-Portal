@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <%= 'Job Portal' %>
+    </title> <!-- dynamic title -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <script src="/path/to/toastify-js"></script> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.css">
+    <!-- Toastify CSS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js@1.12.0/src/toastify.min.js"></script> <!-- Toastify JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/datepicker.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/2.3.0/flowbite.min.js"></script>
+    <%- typeof styles !=='undefined' ? styles : '' %>
+
+
+
+</head>
+
+<body>
+    <%- body %> <!-- Content from getJobs.ejs will be injected here -->
+
+
+        <script>
+
+        <% if (typeof successToastMessage !== 'undefined') { %>
+                Toastify({
+                    text: "<%= successToastMessage %>",
+                    backgroundColor: "#4CAF50",  // Green for success
+                    duration: 3000  // Duration in milliseconds
+                }).showToast();
+        <% } %>
+    
+        <% if (typeof errorToastMessage !== 'undefined') { %>
+                Toastify({
+                    text: "<%= errorToastMessage %>",
+                    backgroundColor: "#FF0000",  // Red for error
+                    duration: 3000  // Duration in milliseconds
+                }).showToast();
+        <% } %>
+        <% if (Array.isArray(errors || []) && errors.length > 0) { %>
+                Toastify({
+                    text: "Validation errors occurred: <%= (errors || []).join(', ') %>",
+                    backgroundColor: "red",
+                    duration: 3000
+                }).showToast();
+<% } %>
+
+
+        </script>
+</body>
+
+</html>
