@@ -28,6 +28,8 @@ Check out the live version of the project [here](https://job-portal-7839.onrende
   - Authenticate with bcrypt for secure password handling.
   - Access a recruiter dashboard to post new jobs.
   - Edit, delete, and view applications for posted jobs.
+  - Recruiters can view the posted Jobs ![Recruiter Posted Job](https://github.com/manichandra95151/Mani-s-Portfolio/blob/main/src/Data/imgaes/Screenshot%202024-12-04%20140041.png?raw=true) 
+  - View the applicants who applied for the job ![Applicants Resume](https://github.com/manichandra95151/Mani-s-Portfolio/blob/main/src/Data/imgaes/Screenshot%202024-12-04%20140515.png?raw=true)
 
 
 ## Tech Stack
